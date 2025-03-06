@@ -100,9 +100,21 @@
                             <span class="font-semibold text-pink-600">{{ $comment->user->name ?? 'Anonymous' }}</span>
                             <span class="text-xs text-gray-500">{{ $comment->created_at->format('F d, Y') }}</span>
                         </div>
-                        <p class="text-gray-700 mt-1">{{ $comment->body }}</p>
+                        <div class="flex justify-between">
+                            <p class="text-gray-700 mt-1">{{ $comment->body }}</p>
+                            @if(auth()->check()&&(auth()->id() === $comment->user_id||auth()->user()->role==='admin'))
+                        <form method="post" action="{{ route('comment.destroy', $comment->id) }}">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="text-pink-600 hover:text-pink-800 font-semibold text-sm px-3 py-1 border border-pink-600 rounded-lg hover:bg-pink-100 transition-all duration-200">
+                                Delete
+                            </button>
+                        </form>
+                        @endif
+                        </div>
                     </div>
                 </div>
+                
             @endforeach
         </div>
     </div>

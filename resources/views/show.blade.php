@@ -10,6 +10,7 @@
 <body class="bg-gray-100 p-8">
 
     <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10">
+        <div><h1 class="text-xl font-bold font-serif p-5 text-slate-500">Admins Dashboard</h1></div>
         <div class="p-6 bg-pink-200 text-white text-xl font-semibold">
             User List
         </div>

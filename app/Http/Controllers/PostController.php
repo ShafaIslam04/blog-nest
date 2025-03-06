@@ -96,6 +96,13 @@ class PostController extends Controller
     return view('filteredPage', compact('posts', 'categories'));
 }
 
+public function myposts(){
+    $user = Auth::user();
+    $posts=Post::where('user_id',$user->id)->with('categories')->get();
+    return view('myposts',compact('posts'));
+    
+}
+
     
     
 }

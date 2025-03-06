@@ -28,7 +28,6 @@
                 <input type="email" name="email" value="{{ $user->email }}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">
             </div>
 
-            <!-- Role Selection -->
             <div>
                 <label class="block text-gray-600 font-medium mb-1">Role</label>
                 <select name="role" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300">

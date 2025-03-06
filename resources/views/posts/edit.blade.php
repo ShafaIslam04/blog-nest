@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
+<x-app-layout>
 <body class="bg-gray-100 p-8" x-data="{ openModal: true }">
 
     <div x-show="openModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
@@ -54,4 +55,5 @@
         </div>
     </div>
 </body>
+</x-app-layout>
 </html>

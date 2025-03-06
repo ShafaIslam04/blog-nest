@@ -28,4 +28,13 @@ class CommentController extends Controller
     return redirect(route('blogs.detail',$comments,$post));
 
     }
+
+    public function destroy(Comment $comment){
+        if(auth()->id() !== $comment->user_id && auth()->user()->role !== 'admin'){
+            return redirect(route('blogs.detail',['post' => $comment->post_id]));
+             
+        }
+      $comment->delete();
+      return redirect(route('blogs.detail',['post' => $comment->post_id]));
+    }
 }

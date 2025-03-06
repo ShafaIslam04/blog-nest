@@ -16,6 +16,8 @@ Route::get('/register',[UserController::class,'register'])->name('register.index
 Route::post('/register',[UserController::class,'store'])->name('register');
 // Route::post('/dashboard',[PostController::class,'store'])->name('dashboard.store');
 // Route::get('/dashboard/post',[PostController::class,'create'])->name('dashboard.post');
+Route::get('/myposts',[PostController::class,'myposts'])->middleware('auth')
+                                                       ->name('myposts.mypost');
 
 Route::get('/blogs',[PostController::class,'show'])->name('blogs.show');
 Route::get('/blogs/{post}',[PostController::class,'detail'])->name('blogs.detail');
@@ -23,6 +25,7 @@ Route::get('/blogs/{post}',[PostController::class,'detail'])->name('blogs.detail
 Route::post('/blogs/{post}/post',[CommentController::class,'store'])->name('comment.store');
 Route::get('/blogs/{post}/post',[CommentController::class,'show'])->name('comment.show');
 Route::post('/blogs/{post}/like',[LikeController::class,'store'])->name('posts.store');
+Route::delete('/blogs/{comment}/destroy',[CommentController::class,'destroy'])->name('comment.destroy');
 // Route::get('/dashboard/filtered', [PostController::class, 'filter'])->name('dashboard.filter');
 Route::get('/filteredPage',[PostController::class,'filter'])->name('filtered.filter');
  
